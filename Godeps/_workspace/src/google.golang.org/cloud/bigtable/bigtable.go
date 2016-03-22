@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package bigtable // import "google.golang.org/cloud/bigtable"
+package bigtable
 
 import (
 	"fmt"
@@ -103,6 +103,7 @@ func (t *Table) ReadRows(ctx context.Context, arg RowRange, f func(Row) bool, op
 		opt.set(req)
 	}
 	ctx, cancel := context.WithCancel(ctx) // for aborting the stream
+	defer cancel()
 	stream, err := t.c.client.ReadRows(ctx, req)
 	if err != nil {
 		return err

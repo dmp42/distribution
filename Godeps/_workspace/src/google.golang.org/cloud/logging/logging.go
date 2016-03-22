@@ -15,7 +15,7 @@
 // Package logging contains a Google Cloud Logging client.
 //
 // This package is experimental and subject to API changes.
-package logging // import "google.golang.org/cloud/logging"
+package logging
 
 import (
 	"errors"
